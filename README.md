@@ -1,9 +1,22 @@
 here we can add some text that should be read first when new user going to handle this assignment this assignment made by Ajay Borde for the first assignment at Fusionstak llc \
 
-name : Ajay Borde email: ajayborde@gmail.com phone number: 9579546693 github : github.com/ajayborde91 linkedin : linkedin.com/in/ajay-borde-7782b31b4
+name : Ajay Borde
+email: ajayborde@gmail.com
+phone number: 9579546693
+github : github.com/ajayborde91
+linkedin : linkedin.com/in/ajay-borde-7782b31b4
 
-updates: 1 checked if username is already exist them show error messege and then reset the input . 3 fixed the routing after signup new user to the login page for security 4 added the dialog box to reset the user password 2 given the proper naming for components services and functions 5 added the dialog box to add new user 6 authenticated the token 7 added validation for confirm password that both should be same 8 updated the routing to dashboard , user not able to access the dashboard until login and token
-generated 9 updated the details description so that new developer can run the code and understand code fastly 10 fixed the login and signup page styles
+updates: 
+1 checked if username is already exist them show error messege and then reset the input . 
+3 fixed the routing after signup new user to the login page for security
+4 added the dialog box to reset the user password 
+2 given the proper naming for components services and functions 
+5 added the dialog box to add new user 
+6 authenticated the token 
+7 added validation for confirm password that both should be same
+8 updated the routing to dashboard , user not able to access the dashboard until login and token generated 
+9 updated the details description so that new developer can run the code and understand code fastly 
+10 fixed the login and signup page styles
 
 components: login = to login the user signup= to create new user dashboard = to display all the users and add and update user with logout functionality
 dialog-addnewuser = dialogbox to add new user dialog-editprofile = dialogbox to update password of user by the name of the user
@@ -17,7 +30,11 @@ Assignment Documentation: Login and Registration Form with JWT Token
 
 Introduction This documentation provides instructions on how to create a web application that includes a login and registration form using JWT token-based authentication. The application consists of two separate parts: an Angular 16.0.0 frontend and a .NET Core 6.0.0 backend. The frontend communicates with the backend API to handle user authentication, registration, and user display
 
-Prerequisites  Node.js  Angular CLI 16.0  .NET Core SDK 6  SQL Server
+Prerequisites 
+ Node.js 
+ Angular CLI 16.0 
+ .NET Core SDK 6 
+ SQL Server
 
 NuGet Package Installed : Microsoft.AspNetCore.Authentication.JwtBearer 6.0.11 Microsoft.EntityFrameworkCore 7.0.10 Microsoft.EntityFrameworkCore.SqlServer 7.0.10 Microsoft.EntityFrameworkCore.Tools 7.0.10
 
