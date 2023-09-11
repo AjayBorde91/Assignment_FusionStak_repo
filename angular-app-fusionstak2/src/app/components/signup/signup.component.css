@@ -1,0 +1,49 @@
+#mainbox {
+    float: left;
+    margin-top: 40px;
+    color: rgb(35, 35, 77);
+}
+
+#imagebox {
+    float: left;  
+}
+
+#imgloct {
+    width: 797px;
+    height: 635px;
+}
+
+#setform {
+    margin-left: 200px;   
+}
+
+#setformfield2 {
+    margin-left: 170px;  
+}
+
+#setitem{
+    margin-top: -5px;
+}
+ 
+#submitbutton {
+    width: 300px;
+    float: right;
+    margin: 0px 10px 10px 0px;
+    
+} 
+
+#submitbuttonclr{
+    background-color: rgb(23, 23, 57);
+}
+
+#linehorizontal {
+    margin: 10px 20px 0px 0px;
+    height: 1.3px;
+    width: 420px;
+    float: right;
+    background-color: rgb(130, 130, 191);
+}
+#dengeralert{
+    float: right;
+    margin-right: 110px;
+}

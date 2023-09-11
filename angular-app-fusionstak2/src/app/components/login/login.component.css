@@ -1,0 +1,28 @@
+#box {
+    float: left;
+    margin-top: 30px;
+    color: #32325f;
+}
+
+#imagebox {
+    flex: 1;
+    background-color: #f8f9fa;
+    display: flex;
+    float: left;
+}
+
+#imgloct {
+    max-height: 100%;
+    width: 821px;
+    height: 630px;
+}
+
+#box .outer {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.forgotpass{
+    margin-right: 179px;
+}

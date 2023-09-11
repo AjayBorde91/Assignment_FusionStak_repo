@@ -1,0 +1,140 @@
+<div id="mainbox">
+  <div class="row">
+    <div>
+      <div class="panel bg-white">
+        <div class="panel-heading">
+          <h2 class="font-weight-bold">Create New Account</h2>
+          <div class="text-center text-muted" id="setitem">or</div>
+          <div id="setitem"><a id="forgot" routerLink="/login" href="#">sign in</a></div>
+        </div>
+        <div id="linehorizontal" style="margin-top: -5px;"></div>
+        <div class="panel-body" style="margin-top: -5px;">
+          <form [formGroup]="signUpForm" (ngSubmit)="onSignup()">
+            <h3 class="panel-heading"><b>Personal Information</b></h3>
+
+            <table id="setform">
+              <tr>
+                <td><label for="firstName">First Name:</label></td>
+                <td>
+                  <div class="form-group pt-1">
+                    <div class="input-field"[class.error]="signUpForm.controls['FirstName'].dirty && signUpForm.hasError('required','FirstName')">
+                      <input formControlName="FirstName" type="text" style="height: 15px;">
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <small id="dengeralert" *ngIf="signUpForm.controls['FirstName'].dirty && signUpForm.hasError('required','FirstName')" class="text-danger">*First Name is required*</small>
+
+            <table id="setform">
+              <tr>
+                <td><label for="lastName">Last Name:</label></td>
+                <td>
+                  <div class="form-group pt-2">
+                    <div class="input-field" [class.error]="signUpForm.controls['LastName'].dirty && signUpForm.hasError('required','LastName')">
+                      <input formControlName="LastName" type="text" style="height: 15px;">
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <small id="dengeralert" *ngIf="signUpForm.controls['LastName'].dirty && signUpForm.hasError('required','LastName')" class="text-danger">*Last Name is required*</small>
+
+            <table id="setformfield2">
+              <tr>
+                <td><label for="companyName">Company Name:</label></td>
+                <td>
+                  <div class="form-group pt-2">
+                    <div class="input-field" [class.error]="signUpForm.controls['CompanyName'].dirty && signUpForm.hasError('required','CompanyName')">
+                      <input formControlName="CompanyName" type="text" style="height: 15px;">
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <small id="dengeralert" *ngIf="signUpForm.controls['CompanyName'].dirty && signUpForm.hasError('required','CompanyName')" class="text-danger">*Company name is required*</small>
+
+            <table id="setformfield2">
+              <tr>
+                <td><label for="emailSignUp">Email/username:</label></td>
+                <td>
+                  <div class="form-group pt-2">
+                    <div class="input-field"  [class.error]="signUpForm.controls['Username'].dirty && signUpForm.hasError('required', 'Username') || signUpForm.hasError('emailFormat', 'Username')">
+                      <input formControlName="Username" type="text" style="height: 15px;" (ngModelChange)="checkUsername($event)">
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <small id="dengeralert" *ngIf="signUpForm.controls['Username'].dirty && signUpForm.hasError('required', 'Username')" class="text-danger">*Username is required*</small>
+            <small id="dengeralert" *ngIf="signUpForm.hasError('emailFormat', 'Username')" class="text-danger">*Email should contain the "@" *</small>
+            <div *ngIf="usernameExistsError" style="color: #ff0000; margin-left: 250px;"><small>*Username already exists.</small></div>
+
+            <br>
+
+            <h3 class="panel-heading"><b>Create Your Password</b></h3>
+            <table id="setformfield2" style="margin-left: 180px;">
+              <tr>
+                <td><label for="passwordSignUp">Password:</label></td>
+                <td>
+                  <div class="form-group pt-2">
+                    <div class="input-field" [class.error]="signUpForm.controls['Password'].dirty && signUpForm.hasError('required','Password')">
+                      <input style="height: 20px;" formControlName="Password" [type]="type">
+                      <button (click)="hideShowPass()" type="button" class="bg-white text-muted">
+                        <span class="fa {{eyeIcon}}"></span>
+                      </button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+
+            <table id="setformfield2" style="margin-left: 127px;">
+              <tr>
+                <td><label for="passwordSignUp">Confirm Password:</label></td>
+                <td>
+                  <div class="form-group pt-2">
+                    <div class="input-field">
+                      <input style="height: 20px;" formControlName="ConfirmPassword" [type]="type">
+                      <button (click)="hideShowPass()" type="button" class="bg-white text-muted">
+                        <span class="fa {{eyeIcon}}"></span>
+                      </button>
+                    </div>
+                    <div *ngIf="signUpForm.controls['Password'].value !== signUpForm.controls['ConfirmPassword'].value" style="color: #ff0000;"> Passwords do not match.</div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <small id="dengeralert"
+              *ngIf="signUpForm.controls['Password'].dirty && signUpForm.hasError('required','Password')" class="text-danger">*Password is required*</small>
+
+            <br>
+
+            <h3 class="panel-heading"><b>Select Industry</b></h3>
+            <table style="margin-left: 215px;">
+              <tr>
+                <td><label for="industry">Industry:</label></td>
+                <td>
+                  <div class="form-group">
+                    <div class="input-field" [class.error]="signUpForm.controls['Industry'].dirty && signUpForm.hasError('required','Industry')">
+                      <input formControlName="Industry" type="text" style="height: 15px;">
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <small id="dengeralert" *ngIf="signUpForm.controls['Industry'].dirty && signUpForm.hasError('required','Industry')" class="text-danger">*Industry selection is required*</small>
+
+            <div id="linehorizontal"></div>
+
+            <div id="submitbutton"> <button id="submitbuttonclr" type="submit" class="btn btn-primary btn-block w-100" [disabled]="usernameExistsError">Creat Account</button></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="imagebox">
+  <img id="imgloct" class="rounded-0" src="assets\images\imagelogo.png">
+</div>

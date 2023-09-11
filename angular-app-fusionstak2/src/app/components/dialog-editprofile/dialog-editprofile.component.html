@@ -1,0 +1,89 @@
+<button mat-icon-button matDialogClose id="closeicon" class="rounded-0"> <mat-icon>close</mat-icon> </button>
+<header>
+  <h2>Edit Profile</h2>
+</header>
+
+<div id="linehorizontal"></div>
+
+<div class="reset-password-form">
+  <div style="margin-left: 50px;">
+    <h3 class="panel-heading"><b> Personal Information</b></h3>
+    <form (submit)="resetPassword()">
+      <table id="setform">
+        <tr>
+          <td><label for="firstName">First Name:</label></td>
+          <td>
+            <div class="form-group pt-1">
+              <div class="input-field">
+                <input formControlName="FirstName" type="text" placeholder="John">
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <table id="setform">
+        <tr>
+          <td><label for="lastName">Last Name:</label></td>
+          <td>
+            <div class="form-group pt-2">
+              <div class="input-field">
+                <input formControlName="LastName" type="text" placeholder="Doe" required />
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <table id="setformfield2">
+        <tr>
+          <td><label>Username:</label></td>
+          <td>
+            <div class="form-group pt-2">
+              <div class="input-field">
+                <input id="username" name="username" [(ngModel)]="username" placeholder="JohnDoe@gmail.com" required />
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+      
+      <h3 class="panel-heading"><b>Change Password</b></h3>
+      <table>
+        <tr>
+          <td><label>Password:</label></td>
+          <td>
+            <div class="form-group pt-2">
+              <div class="input-field">
+                <input type="password" id="newPassword" name="newPassword" [(ngModel)]="newPassword" placeholder="******">
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+      
+      <table style="margin-left: 10px;">
+        <tr>
+          <td><label>Confirm:</label></td>
+          <td>
+            <div class="form-group pt-2">
+              <div class="input-field">
+                <input type="password" id="confirmPassword" name="confirmPassword" [(ngModel)]="confirmPassword" placeholder="******">
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <div *ngIf="newPassword !== confirmPassword" style="color: #ff0000;">
+        *Passwords do not match.
+      </div>
+
+      <div id="linehorizontal"></div>
+
+      <mat-dialog-actions align="end">
+        <button mat-raised-button matDialogClose type="submit" style="background-color: #0e0e44; color: #ffffff;">Update User</button>
+        <button mat-raised-button matDialogClose>cancel</button>
+      </mat-dialog-actions>
+    </form>
+  </div>
+</div>

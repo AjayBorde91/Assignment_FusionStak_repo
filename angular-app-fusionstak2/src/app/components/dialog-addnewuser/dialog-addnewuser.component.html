@@ -1,0 +1,73 @@
+<button mat-icon-button matDialogClose id="closeicon" class="rounded-0"> <mat-icon>close</mat-icon> </button>
+<header>
+  <h2>Add New Internal User</h2>
+</header>
+
+<div id="linehorizontal"></div>
+
+<form [formGroup]="addnewuser" (ngSubmit)="onaddnewuser()">
+  <table id="setform">
+    <tr>
+      <td><label for="firstName">First Name:</label></td>
+      <td>
+        <div class="form-group pt-1">
+          <div class="input-field" [class.error]="addnewuser.controls['FirstName'].dirty && addnewuser.hasError('required','FirstName')">
+            <input formControlName="FirstName" type="text" style="height: 15px; width: 298px;">
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <small id="dengeralert" *ngIf="addnewuser.controls['FirstName'].dirty && addnewuser.hasError('required','FirstName')" class="text-danger">*First Name is required*</small>
+
+  <table id="setform">
+    <tr>
+      <td><label for="lastName">Last Name:</label></td>
+      <td>
+        <div class="form-group pt-2">
+          <div class="input-field" [class.error]="addnewuser.controls['LastName'].dirty && addnewuser.hasError('required','LastName')">
+            <input formControlName="LastName" type="text" style="height: 15px; width: 298px;">
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <small id="dengeralert" *ngIf="addnewuser.controls['LastName'].dirty && addnewuser.hasError('required','LastName')" class="text-danger">*Last Name is required*</small>
+
+  <table id="setformfield2">
+    <tr>
+      <td><label for="emailSignUp">Email:</label></td>
+      <td>
+        <div class="form-group pt-2">
+          <div class="input-field" [class.error]="addnewuser.controls['Username'].dirty && addnewuser.hasError('required', 'Username') || addnewuser.hasError('emailFormat', 'Username')">
+            <input formControlName="Username" type="text" style="height: 15px; width: 298px;" (ngModelChange)="checkUsername($event)">
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <small id="dengeralert" *ngIf="addnewuser.controls['Username'].dirty && addnewuser.hasError('required', 'Username')" class="text-danger">*Username is required*</small>
+  <small  id="dengeralert" *ngIf="addnewuser.hasError('emailFormat', 'Username')" class="text-danger">*Email should contain the "@" *</small>
+  <div *ngIf="usernameExistsError" style="color: #ff0000; margin-left: 150px;"><small>*Username already exists.</small></div>
+
+  <table id="setformfield3">
+    <tr>
+      <td><label for="passwordSignUp">Password:</label></td>
+      <td>
+        <div class="form-group pt-2">
+          <div class="input-field" [class.error]="addnewuser.controls['Password'].dirty && addnewuser.hasError('required','Password')">
+            <input style="height: 20px; width: 270px;" formControlName="Password" [type]="type"> 
+            <button (click)="hideShowPass()" type="button" class="bg-white text-muted"> <span class="fa {{eyeIcon}}"></span> </button>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <div id="linehorizontal"></div>
+
+  <mat-dialog-actions align="end">
+    <button mat-raised-button matDialogClose type="submit" style="background-color: #0e0e44; color: #ffffff;" [disabled]="usernameExistsError">Add User</button>
+    <button mat-raised-button matDialogClose>cancel</button>
+  </mat-dialog-actions>
+</form>
